@@ -1,4 +1,5 @@
 .vagrant
+
 *.rbc
 capybara-*.html
 .rspec
