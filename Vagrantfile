@@ -1,6 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 IP_ADDRESS = "44.44.44.234"
+USER_NAME = "Barnaby Mercer"
+USER_EMAIL = "barnaby.mercer@gmail.com"
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
@@ -16,6 +18,7 @@ Vagrant.configure(2) do |config|
     s.privileged = false
     s.path = "bootstrap.sh"
     s.keep_color = true
+    s.args = "'" + USER_NAME + "' " + USER_EMAIL
   end
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
