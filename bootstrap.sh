@@ -6,7 +6,7 @@ echo '---------- Starting provisioning'
 sudo apt-get update
 sudo apt-get dist-upgrade -y
 sudo apt-get install git-all -y
-sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev flex gettext -y
+sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev flex gettext libgmp3-dev -y
 
 sudo apt-get autoremove -y
 
@@ -22,7 +22,7 @@ git config --global user.name $1
 git config --global user.email $2
 ssh-keygen -t rsa -C $2
 
-# https://gorails.com/setup/ubuntu/14.04
+#https://gorails.com/setup/ubuntu/14.04
 cd ~
 
 if [ ! -d ".rbenv" ]; then
@@ -41,27 +41,23 @@ if [ ! -d ".rbenv" ]; then
 
   export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
   eval "$(rbenv init -)"
-  
+
   echo '---------- Install ruby: install'
   rbenv install 2.2.3
   rbenv global 2.2.3
 fi
 
 echo '---------- Install bundler'
-sudo gem install bundler
+gem install bundler
 rbenv rehash
-
-# Install NodeJS
-echo '---------- Install NodeJS'
-curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-sudo apt-get install -y nodejs
 
 # install rails
 echo '---------- Install Rails'
-sudo gem install rails -v 4.2.4
+export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+eval "$(rbenv init -)"
+rbenv global 2.2.3
+gem install rails -v 4.2.4
 rbenv rehash
-
-sudo apt-get install libgmp3-dev -y
 
 # setup git prompt
 cd ~
