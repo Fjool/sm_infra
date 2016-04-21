@@ -12,6 +12,11 @@ Vagrant.configure(2) do |config|
     s.inline = "sudo sed -i '/tty/!s/mesg n/tty -s \\&\\& mesg n/' /root/.profile"
   end
 
+  config.vm.provision "main", type: "shell" do |s|
+    s.privileged = false
+    s.path = "boostraph.sh"
+    s.keep_color = true    
+  end
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
@@ -37,8 +42,6 @@ Vagrant.configure(2) do |config|
   #   # Customize the amount of memory on the VM:
     vb.memory = "4096"
   end
-
-  config.vm.provision :shell, keep_color: true, path: "bootstrap.sh", privileged: false
 
   if Vagrant::Util::Platform.windows?
     config.vm.provider "virtualbox" do |vb|

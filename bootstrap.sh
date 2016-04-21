@@ -15,9 +15,9 @@ echo '---------- Configure git'
 git config --global color.ui true
 
 # Following stage required to be configured by individuals
-git config --global user.name USER_NAME
-git config --global user.email USER_EMAIL
-ssh-keygen -t rsa -C USER_EMAIL
+git config --global user.name $USER_NAME
+git config --global user.email $USER_EMAIL
+ssh-keygen -t rsa -C $USER_EMAIL
 
 # https://gorails.com/setup/ubuntu/14.04
 cd ~
