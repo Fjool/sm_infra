@@ -14,8 +14,8 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision "main", type: "shell" do |s|
     s.privileged = false
-    s.path = "boostraph.sh"
-    s.keep_color = true    
+    s.path = "bootstrap.sh"
+    s.keep_color = true
   end
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
