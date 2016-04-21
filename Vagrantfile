@@ -40,6 +40,12 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision :shell, keep_color: true, path: "bootstrap.sh", privileged: false
 
+  if Vagrant::Util::Platform.windows?
+    config.vm.provider "virtualbox" do |vb|
+      vb.gui = true
+    end
+  end
+
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
