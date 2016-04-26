@@ -13,6 +13,7 @@ This initialisation was tested on Windows 10.
 - Install vagrant: https://www.vagrantup.com/docs/installation/
 - From sm_infra:
   - vagrant up
+  - vagrant ssh # access VM via SSH
 
 Provisioning might take a while, but once complete, the environment should be ready to use.
 
